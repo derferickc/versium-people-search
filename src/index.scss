@@ -1,0 +1,80 @@
+.App {
+  .header {
+    margin: 25px auto 75px auto;
+  }
+  .search-wrapper {
+    .flex-outer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      @media only screen and (max-width: 767px) {
+        display: block;
+        display: inline-block;
+      }
+      .flex-inner {
+        flex: 30;
+        @media only screen and (max-width: 767px) {
+            flex: unset;
+            width: 100%;
+            display: inline-block;
+        }
+      }
+      .flex-inner-submit {
+        flex: 10;
+      }
+      label {
+        margin-right: 10px;
+        @media only screen and (max-width: 767px) {
+          width: 20%;
+          margin: 5px auto;
+        }
+      }
+      input {
+        margin-right: 20px;
+        @media only screen and (max-width: 767px) {
+          width: 80%;
+          margin: 5px auto;
+        }
+      }
+      .submit-btn {
+        font-weight: 400;
+        border: 1px solid #cccccc;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        border-radius: 4px;
+        background-color: gray;
+        color: #ffffff;
+        @media only screen and (max-width: 767px) {
+          width: 100%;
+        }
+      }
+      .submit-btn:hover {
+        background-color: #5c5a5a;
+      }
+      .submit-btn:disabled {
+        background-color: #b5160b;
+      }
+    }
+  }
+  
+  .results-wrapper {
+    outline: 1px solid #000000;
+    margin: 25px auto;
+    .result {
+      padding: 25px;
+    }
+    .result:not(:last-child) {
+      border-bottom: 1px solid #000000;
+    }
+  }
+
+  .no-results-wrapper {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .loading-wrapper {
+    margin-top: 50px;
+  }
+}
