@@ -18,9 +18,13 @@ No Results
 
 ---
 
+Loading
+<img src="https://firebasestorage.googleapis.com/v0/b/pixabay-search-app.appspot.com/o/Loading.png?alt=media&token=24699bc1-8ce1-4351-bd8e-6df1b81aef48" title="loading-screenshot" alt="loading-screenshot">
+
+---
+
 Results Table
 <img src="https://firebasestorage.googleapis.com/v0/b/pixabay-search-app.appspot.com/o/results.png?alt=media&token=0ad3e05b-c415-486f-917d-cb51eb7dd0a8" title="results-screenshot" alt="results-screenshot">
-
 
 ## Installation / Run Commands
 
