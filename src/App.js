@@ -1,8 +1,9 @@
 import React, { Component } from "react"
+import Header from './components/Header'
 import Search from './components/Search'
 import Results from './components/Results'
 import Loading from './components/Loading'
-import './index.scss';
+import './index.scss'
 
 class App extends Component {
 
@@ -10,9 +11,10 @@ class App extends Component {
     super(props)
 
     this.state = {
-      results: [],
+      people: [],
       error: null,
-      loading: false
+      loading: false,
+      results: false,
     }
   }
 
@@ -27,6 +29,10 @@ class App extends Component {
       loading: true,
     })
 
+    this.fetchUsers(fetchQuery)
+  }
+
+  fetchUsers = (fetchQuery) => {
     fetch(fetchQuery)
       .then(response => response.json())
       .then(
@@ -34,31 +40,31 @@ class App extends Component {
           // Handle error
           if(results.datafinder.results === undefined) {
             this.setState({
+              people: [],
               error: "No results Found",
-              loading: false
+              loading: false,
+              results: false
             })
           } else {
           // Handle the result
             this.setState({
-              results: results.datafinder.results,
+              people: results.datafinder.results,
               error: null,
-              loading: false
+              loading: false,
+              results: true
             });
-            console.log(results)
           }
         }
       )
   }
 
   render() {
-    const { results, error, loading } = this.state
+    const { people, error, loading, results } = this.state
 
     return (
       <div className="App">
         <div className="container">
-          <section className="header text-center">
-            <h1>Welcome to Versium People Search</h1>
-          </section>
+          <Header />
           <Search 
             fetchResults={this.handleFetch}
             loading={loading}
@@ -67,7 +73,8 @@ class App extends Component {
           {loading === true
             ? <Loading />
             : <Results 
-                searchResults={results}
+                people={people}
+                results={results}
                 error={error}
               />
           }

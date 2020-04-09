@@ -13,8 +13,12 @@ class Loading extends Component {
 
       this.interval = window.setInterval(() => {
         this.state.text === stopper
-          ? this.setState(() => ({ text: 'Loading' }))
-          : this.setState((prevState) => ({ text: prevState.text + '.' }))
+          ? this.setState({
+            text: 'Loading'
+          })
+          : this.setState((prevState) => ({ 
+            text: prevState.text + '.' 
+          }))
       }, 100)
     }
 

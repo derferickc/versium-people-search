@@ -20,11 +20,12 @@ class Search extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault()
-
         this.props.fetchResults(this.state)
     }
 
     render() {
+        const { firstName, lastName, state } = this.state
+        // const isValid = firstName.length > 0 && lastName.length > 0 && state.length === 2
         return (
             <section className="search-wrapper text-left">
                 <form onSubmit={this.handleSubmit}>
@@ -33,11 +34,13 @@ class Search extends Component {
                             <label className="firstName">FirstName </label>
                             <input
                                 type='text'
+                                className="firstName-input"
                                 name="firstName"
                                 placeholder="eg. John"
                                 onChange={this.handleChange}
                                 disabled={this.props.loading}
-                                pattern="^[A-Za-z]{1,50}"
+                                value={firstName}
+                                pattern="^[A-Za-z -]{1,50}"
                                 required
                             />
                         </div>
@@ -45,11 +48,13 @@ class Search extends Component {
                             <label className="lastName">LastName </label>
                             <input
                                 type='text'
+                                className="lastName-input"
                                 name="lastName"
                                 placeholder="eg. Smith"
                                 onChange={this.handleChange}
                                 disabled={this.props.loading}
-                                pattern="^[A-Za-z]{1,50}"
+                                value={lastName}
+                                pattern="^[A-Za-z -]{1,50}"
                                 required
                             />
                         </div>
@@ -57,10 +62,12 @@ class Search extends Component {
                             <label className="state">State </label>
                             <input
                                 type='text'
+                                className="state-input"
                                 name="state"
                                 placeholder="eg. LA"
                                 onChange={this.handleChange}
                                 disabled={this.props.loading}
+                                value={state}
                                 pattern="^[A-Za-z]{1,2}"
                                 required
                             />
